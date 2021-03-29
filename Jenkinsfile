@@ -7,7 +7,7 @@ pipeline {
             steps {
                 def mvnhome = tool name: 'MAVEN_HOME', type: 'maven'
                 {
-                    sh "${mvnhome}/bin/mvn clean compile"
+                    sh "${mvnhome}/opt/maven/mvn clean compile"
                 }
             }
         }
@@ -16,7 +16,7 @@ pipeline {
 
             steps {
                  {
-                    sh "${mvnhome}/bin/mvn test"
+                    sh "${mvnhome}/opt/maven/mvn test"
                 }
             }
         }
@@ -25,7 +25,7 @@ pipeline {
         stage ('Deployment Stage') {
             steps {
                   {
-                    sh "${mvnhome}/bin/mvn deploy"
+                    sh "${mvnhome}/opt/maven/mvn deploy"
                 }
             }
         }
